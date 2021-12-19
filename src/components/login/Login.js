@@ -50,6 +50,7 @@ export default function Login(props) {
           id="outlined-basic"
           label="Password"
           variant="outlined"
+          type="password"
           onChange={(e) => setPassword(e.target.value)}
         />
       </section>

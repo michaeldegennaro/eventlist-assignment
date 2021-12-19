@@ -37,6 +37,7 @@ export default function Signup() {
           id="outlined-basic"
           label="Password"
           variant="outlined"
+          type="password"
           onChange={(e) => setUserPassword(e.target.value)}
         />
         <br />
@@ -44,6 +45,7 @@ export default function Signup() {
           id="outlined-basic"
           label="Repeat Password"
           variant="outlined"
+          type="password"
           onChange={(e) => setRepPassword(e.target.value)}
         />
       </section>
