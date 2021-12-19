@@ -33,6 +33,7 @@ export default function Signup() {
           onChange={(e) => setUserName(e.target.value)}
         />
         <br />
+        <br />
         <TextField
           id="outlined-basic"
           label="Password"
@@ -40,6 +41,7 @@ export default function Signup() {
           type="password"
           onChange={(e) => setUserPassword(e.target.value)}
         />
+        <br />
         <br />
         <TextField
           id="outlined-basic"
@@ -49,6 +51,7 @@ export default function Signup() {
           onChange={(e) => setRepPassword(e.target.value)}
         />
       </section>
+      <br />
       <div>
         <Button variant="contained" onClick={handleLogIn}>
           Sign Up
