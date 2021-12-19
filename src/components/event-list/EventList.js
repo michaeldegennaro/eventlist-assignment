@@ -320,6 +320,7 @@ export default function EventList(props) {
           </TableBody>
         </Table>
       </TableContainer>
+      <br />
       <div>
         <Button variant="contained" onClick={() => setAddEvent(true)}>
           Add New Event
@@ -331,7 +332,7 @@ export default function EventList(props) {
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: theme.palette.primary.light,
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {

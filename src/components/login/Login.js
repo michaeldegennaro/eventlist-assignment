@@ -17,7 +17,7 @@ export default function Login(props) {
       password: password,
     })
       .then(function (response) {
-        console.log(response.data);
+        //console.log(response.data);
         test(response.data);
       })
       .catch(function (error) {
@@ -44,7 +44,7 @@ export default function Login(props) {
           onChange={(e) => setUserName(e.target.value)}
         />
         <br />
-
+        <br />
         <TextField
           value={password}
           id="outlined-basic"
@@ -54,6 +54,7 @@ export default function Login(props) {
           onChange={(e) => setPassword(e.target.value)}
         />
       </section>
+      <br />
       <div>
         <Button variant="contained" onClick={handleLogIn}>
           Log In
