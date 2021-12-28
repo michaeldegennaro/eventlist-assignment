@@ -23,6 +23,7 @@ export default function EventList(props) {
   let [addEvent, setAddEvent] = useState(false);
   let [isEditing, setIsEditing] = useState("");
   let [rerender, setRerender] = useState(false);
+  let [token, setToken] = useState(window.localStorage.getItem("user"));
 
   let [addFrom, setAddFrom] = useState("");
   let [addTo, setAddTo] = useState("");
@@ -39,19 +40,20 @@ export default function EventList(props) {
   });
 
   useEffect(() => {
-    GetEvents(props.data.token).then(function (response) {
+    GetEvents(window.localStorage.getItem("user")).then(function (response) {
+      console.log(response.data.result);
       setEvents(response.data.result);
     });
   }, []);
 
   useEffect(() => {
-    GetEvents(props.data.token).then(function (response) {
+    GetEvents(token).then(function (response) {
       setEvents(response.data.result);
     });
   }, [rerender]);
 
   const handleDelete = (id) => {
-    DeleteEvent(id, props.data.token).then(function (response) {
+    DeleteEvent(id, token).then(function (response) {
       console.log(response.data.result);
       for (let i = 0; i < events.length; i++) {
         if (id == events[i]._id) {
@@ -74,7 +76,7 @@ export default function EventList(props) {
         isCompleted: addStatus.toString(),
         creator: props.data.userId,
       },
-      props.data.token
+      token
     ).then(function (response) {
       response.data.data._id = `${response.data.data.id}`;
       setEvents([...events, response.data.data]);
@@ -103,7 +105,7 @@ export default function EventList(props) {
           id: "",
         });
         let updatedEvent = mapEvent(events[i], updateMapEvent);
-        UpdateEvent(updatedEvent, props.data.token).then(function (response) {
+        UpdateEvent(updatedEvent, token).then(function (response) {
           console.log(response);
           setRerender(!rerender);
         });

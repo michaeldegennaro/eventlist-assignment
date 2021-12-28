@@ -10,12 +10,12 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   let [authenticated, setAuthenticated] = useState(false);
-  let [data, setData] = useState("fe");
+  let [data, setData] = useState("");
 
   useEffect(() => {
-    console.log(authenticated);
+    //console.log(authenticated);
   }, [authenticated]);
-
+  console.log(window.localStorage.getItem("user"));
   return (
     <div className="App">
       <header className="App-header">
@@ -32,7 +32,7 @@ function App() {
               }
             />
             <Route path="/signup" element={<Signup />} />
-            {authenticated && (
+            {window.localStorage.getItem("user") && (
               <Route path="/eventlist" element={<EventList data={data} />} />
             )}
           </Routes>

@@ -17,7 +17,8 @@ export default function Login(props) {
       password: password,
     })
       .then(function (response) {
-        //console.log(response.data);
+        console.log(response.data.data.token);
+        localStorage.setItem("user", response.data.data.token);
         test(response.data);
       })
       .catch(function (error) {
